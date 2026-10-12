@@ -46,38 +46,20 @@
   </div>
 </header>
 <main id="main">
-<section class="hero">
-  <div class="wrap hero-top">
+<section class="hero-reel">
+  <video class="reel" autoplay muted loop playsinline preload="auto" poster="./media/hero/reel-poster.jpg" aria-hidden="true">
+    <source src="./media/hero/reel.mp4" type="video/mp4">
+  </video>
+  <div class="reel-shade"></div>
+  <button class="reel-toggle" type="button" data-pause="עצירת הווידאו" data-play="הפעלת הווידאו" aria-label="עצירת הווידאו"><span class="reel-icon" aria-hidden="true"></span></button>
+  <div class="wrap reel-text">
     <h1 class="hero-name">Roey Leon</h1>
-    <div class="hero-side">
-      <p class="hero-tag">יצירות קיר תלת-ממדיות ועבודות עץ. כל פריט נבנה ביד, מהבסיס ועד שכבת הגימור.</p>
-      <div class="btns">
-        <a class="btn btn-solid" href="./work/">לכל העבודות</a>
-        <a class="btn btn-line" href="./custom/">להזמנה אישית</a>
-      </div>
+    <p class="hero-tag">יצירות קיר תלת-ממדיות ועבודות עץ. כל פריט נבנה ביד, מהבסיס ועד שכבת הגימור.</p>
+    <div class="btns">
+      <a class="btn btn-light" href="./work/">לכל העבודות</a>
+      <a class="btn btn-ghost" href="./custom/">להזמנה אישית</a>
     </div>
   </div>
-  <ul class="swatches" aria-label="דוגמיות מהעבודות">
-    <li style="--i:0"><a href="./item/liquid-motion/">
-      <img src="./media/hero/swatch-01.jpg" width="560" height="840" alt="תקריב של Liquid Motion" fetchpriority="high">
-      <span class="swatch-name">Liquid Motion</span></a></li><li style="--i:1"><a href="./item/the-herringbone/">
-      <img src="./media/hero/swatch-02.jpg" width="560" height="840" alt="תקריב של The Herringbone" fetchpriority="high">
-      <span class="swatch-name">The Herringbone</span></a></li><li style="--i:2"><a href="./item/the-basketweave/">
-      <img src="./media/hero/swatch-03.jpg" width="560" height="840" alt="תקריב של The Basketweave" fetchpriority="high">
-      <span class="swatch-name">The Basketweave</span></a></li><li style="--i:3"><a href="./item/undergrowth/">
-      <img src="./media/hero/swatch-04.jpg" width="560" height="840" alt="תקריב של Undergrowth" fetchpriority="high">
-      <span class="swatch-name">Undergrowth</span></a></li><li style="--i:4"><a href="./item/amber-and-walnut/">
-      <img src="./media/hero/swatch-05.jpg" width="560" height="840" alt="תקריב של Amber &amp; Walnut" loading="lazy">
-      <span class="swatch-name">Amber &amp; Walnut</span></a></li><li style="--i:5"><a href="./item/the-mosaic/">
-      <img src="./media/hero/swatch-06.jpg" width="560" height="840" alt="תקריב של The Mosaic" loading="lazy">
-      <span class="swatch-name">The Mosaic</span></a></li><li style="--i:6"><a href="./item/monochrome-grain/">
-      <img src="./media/hero/swatch-07.jpg" width="560" height="840" alt="תקריב של Monochrome Grain" loading="lazy">
-      <span class="swatch-name">Monochrome Grain</span></a></li><li style="--i:7"><a href="./item/the-tri-timber/">
-      <img src="./media/hero/swatch-08.jpg" width="560" height="840" alt="תקריב של The Tri-Timber" loading="lazy">
-      <span class="swatch-name">The Tri-Timber</span></a></li><li style="--i:8"><a href="./item/dark-contrast/">
-      <img src="./media/hero/swatch-09.jpg" width="560" height="840" alt="תקריב של Dark Contrast" loading="lazy">
-      <span class="swatch-name">Dark Contrast</span></a></li>
-  </ul>
 </section><section class="section">
   <div class="wrap">
     <div class="sec-head"><h2>זמין עכשיו</h2><p>יצירות מוכנות שאפשר לקחת הביתה.</p></div>
@@ -122,6 +104,12 @@
 </a><a class="tile" href="./c/end-grain-cutting-boards/">
   <span class="tile-img"><img src="./media/maple-and-walnut/01-s.jpg" width="570" height="760" alt="" loading="lazy" decoding="async"></span>
   <span class="tile-text"><span class="tile-name">קרשי חיתוך End Grain</span><span class="tile-count">9 פריטים</span></span>
+</a><a class="tile" href="./c/epoxy-resin/">
+  <span class="tile-img"><img src="./media/epoxy-clock/01-s.jpg" width="760" height="570" alt="" loading="lazy" decoding="async"></span>
+  <span class="tile-text"><span class="tile-name">אפוקסי</span><span class="tile-count">2 פריטים</span></span>
+</a><a class="tile" href="./c/furniture/">
+  <span class="tile-img"><img src="./media/wooden-swedish-ladder/01-s.jpg" width="570" height="760" alt="" loading="lazy" decoding="async"></span>
+  <span class="tile-text"><span class="tile-name">רהיטים</span><span class="tile-count">פריט אחד</span></span>
 </a><a class="tile" href="./c/kids/">
   <span class="tile-img"><img src="./media/little-helper-tower/01-s.jpg" width="570" height="760" alt="" loading="lazy" decoding="async"></span>
   <span class="tile-text"><span class="tile-name">לילדים</span><span class="tile-count">3 פריטים</span></span>
@@ -129,7 +117,7 @@
   </div>
 </section><section class="section">
   <div class="wrap about-teaser">
-    <img src="./media/about/portrait-s.jpg" width="608" height="760" alt="רועי ליאון בעבודה בסדנה" loading="lazy">
+    <img src="./media/about/portrait-s.jpg" width="760" height="760" alt="רועי ליאון בעבודה בסדנה" loading="lazy">
     <div>
       <p class="lede">אני רועי. אני עובד עם עץ, גבס וצבע בסדנה שלי, ובונה כל פריט בעצמי מההתחלה ועד הסוף.</p>
       <a class="text-link" href="./about/">עוד עליי ועל הסדנה</a>

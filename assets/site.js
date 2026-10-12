@@ -11,6 +11,20 @@
     });
   }
 
+  // ---- homepage video: pause button, and no autoplay for people who prefer reduced motion
+  const reel = document.querySelector('.reel');
+  const tog = document.querySelector('.reel-toggle');
+  if (reel && tog) {
+    const set = (paused) => {
+      tog.classList.toggle('is-paused', paused);
+      tog.setAttribute('aria-label', paused ? tog.dataset.play : tog.dataset.pause);
+    };
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { reel.removeAttribute('autoplay'); reel.pause(); set(true); }
+    tog.addEventListener('click', () => {
+      if (reel.paused) { reel.play().catch(() => {}); set(false); } else { reel.pause(); set(true); }
+    });
+  }
+
   // ---- item gallery + lightbox
   const g = document.querySelector('[data-gallery]');
   if (g) {
