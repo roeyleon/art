@@ -11,18 +11,47 @@
     });
   }
 
-  // ---- homepage video: pause button, and no autoplay for people who prefer reduced motion
-  const reel = document.querySelector('.reel');
+  // ---- homepage video: starts on load, loops with a soft cross-fade between two copies
+  const va = document.querySelector('.reel-a');
+  const vb = document.querySelector('.reel-b');
   const tog = document.querySelector('.reel-toggle');
-  if (reel && tog) {
-    const set = (paused) => {
-      tog.classList.toggle('is-paused', paused);
-      tog.setAttribute('aria-label', paused ? tog.dataset.play : tog.dataset.pause);
-    };
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { reel.removeAttribute('autoplay'); reel.pause(); set(true); }
-    tog.addEventListener('click', () => {
-      if (reel.paused) { reel.play().catch(() => {}); set(false); } else { reel.pause(); set(true); }
-    });
+  if (va) {
+    const FADE = 1.1;
+    let top = va, under = vb, fading = false, paused = false;
+    [va, vb].forEach(v => { if (v) { v.muted = true; v.playsInline = true; } });
+    const kick = () => { if (!paused) top.play().catch(() => {}); };
+    kick();
+    document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
+    ['touchstart', 'pointerdown', 'scroll'].forEach(ev => window.addEventListener(ev, kick, { once: true, passive: true }));
+    if (vb) {
+      va.loop = false;
+      const tick = () => {
+        const d = top.duration;
+        if (!paused && !fading && d && top.currentTime >= d - FADE - 0.05) {
+          fading = true;
+          under.currentTime = 0;
+          under.play().catch(() => {});
+          under.style.zIndex = 1; top.style.zIndex = 0;
+          under.style.transition = 'none'; under.style.opacity = 0;
+          requestAnimationFrame(() => { under.style.transition = ''; under.style.opacity = 1; });
+          setTimeout(() => {
+            top.pause(); top.style.opacity = 0;
+            [top, under] = [under, top];
+            fading = false;
+          }, FADE * 1000 + 60);
+        }
+        requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+    if (tog) {
+      const set = (p) => { tog.classList.toggle('is-paused', p); tog.setAttribute('aria-label', p ? tog.dataset.play : tog.dataset.pause); };
+      tog.addEventListener('click', () => {
+        paused = !paused;
+        if (paused) { va.pause(); if (vb) vb.pause(); } else { top.play().catch(() => {}); }
+        set(paused);
+      });
+    }
   }
 
   // ---- item gallery + lightbox

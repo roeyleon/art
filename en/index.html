@@ -24,11 +24,14 @@
 <body class="home">
 <a class="skip" href="#main">Skip to content</a>
 <header class="site-header">
-  <div class="wrap header-row">
-    <a class="wordmark" href="../en/">Roey Leon</a>
-    <button class="menu-btn" aria-expanded="false" aria-controls="site-nav"><span class="menu-lines" aria-hidden="true"></span><span class="sr">Menu</span></button>
-    <nav id="site-nav" class="site-nav" aria-label="Menu">
+  <div class="header-row" dir="ltr">
+    <a class="logo" href="../en/" aria-label="Roey Leon">
+      <span class="logo-mark" aria-hidden="true">RL</span>
+      <span class="logo-text" aria-hidden="true"><span class="logo-name">ROEY LEON</span><span class="logo-sub">ART &amp; OBJECTS</span></span>
+    </a>
+    <nav id="site-nav" class="site-nav" aria-label="Menu" dir="ltr">
       <ul class="nav-list">
+        <li><a href="../en/" aria-current="page">Home</a></li>
         <li class="has-sub">
           <a href="../en/work/">Work</a>
           <ul class="sub">
@@ -39,25 +42,33 @@
         <li><a href="../en/custom/">Custom orders</a></li>
         <li><a href="../en/about/">About</a></li>
         <li><a href="../en/contact/">Contact</a></li>
-        <li class="nav-ig"><a href="https://instagram.com/roeyleon" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a></li>
-        <li class="nav-lang"><a href="../" hreflang="he" lang="he" aria-label="לעברית">עב</a></li>
       </ul>
     </nav>
+    <div class="header-tools">
+      <a class="tool-ig" href="https://instagram.com/roeyleon" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M7.5 3h9A4.5 4.5 0 0 1 21 7.5v9a4.5 4.5 0 0 1-4.5 4.5h-9A4.5 4.5 0 0 1 3 16.5v-9A4.5 4.5 0 0 1 7.5 3Z"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.7"/><circle cx="17.3" cy="6.7" r="1.1" fill="currentColor"/></svg></a>
+      <a class="tool-lang" href="../" hreflang="he" lang="he" aria-label="לעברית">עב</a>
+      <button class="menu-btn" aria-expanded="false" aria-controls="site-nav"><span class="menu-lines" aria-hidden="true"></span><span class="sr">Menu</span></button>
+    </div>
   </div>
 </header>
 <main id="main">
 <section class="hero-reel">
-  <video class="reel" autoplay muted loop playsinline preload="auto" poster="../media/hero/reel-poster.jpg" aria-hidden="true">
-    <source src="../media/hero/reel.mp4" type="video/mp4">
-  </video>
-  <div class="reel-shade"></div>
-  <button class="reel-toggle" type="button" data-pause="Pause video" data-play="Play video" aria-label="Pause video"><span class="reel-icon" aria-hidden="true"></span></button>
-  <div class="wrap reel-text">
-    <h1 class="hero-name">Roey Leon</h1>
-    <p class="hero-tag">Three-dimensional wall art and woodwork. Every piece is built by hand, from the base to the final coat.</p>
-    <div class="btns">
-      <a class="btn btn-light" href="../en/work/">See the work</a>
-      <a class="btn btn-ghost" href="../en/custom/">Order a custom piece</a>
+  <div class="reel-frame">
+    <video class="reel reel-a" autoplay muted loop playsinline preload="auto" poster="../media/hero/reel-poster.jpg" aria-hidden="true"><source src="../media/hero/reel.mp4" type="video/mp4"></video>
+    <video class="reel reel-b" muted playsinline preload="auto" aria-hidden="true"><source src="../media/hero/reel.mp4" type="video/mp4"></video>
+    <div class="reel-shade"></div>
+    <button class="reel-toggle" type="button" data-pause="Pause video" data-play="Play video" aria-label="Pause video"><span class="reel-icon" aria-hidden="true"></span></button>
+    <div class="reel-top">
+      <p class="reel-kicker"><bdi>ROEY LEON · ART &amp; OBJECTS</bdi></p>
+      <h1 class="reel-title">Not just another picture on the wall.</h1>
+      <p class="reel-sub">Sculptural art. Living texture. A different presence.</p>
+    </div>
+    <div class="reel-bottom">
+      <div class="btns">
+        <a class="btn btn-light" href="../en/custom/">Commission a piece</a>
+        <a class="btn btn-ghost" href="../en/work/">View the work</a>
+      </div>
+      <p class="reel-note">A question, or an idea for a particular space? <a href="../en/contact/">Write to me</a></p>
     </div>
   </div>
 </section><section class="section">
