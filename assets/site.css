@@ -164,7 +164,23 @@ button { font: inherit; color: inherit; }
 .reel-icon { width: 10px; height: 12px; border-inline: 3px solid #fff; box-sizing: border-box; }
 .reel-toggle.is-paused .reel-icon { border: 0; width: 0; height: 0; border-style: solid; border-color: transparent transparent transparent #fff;
   border-width: 6px 0 6px 10px; margin-left: 3px; }
+/* vertical (phone) video: on wide screens show it whole in a tall panel, text beside it, blurred still behind */
+.reel-bg { display: none; }
+@media (min-width: 761px) {
+  .reel-frame.is-portrait { --fh: clamp(480px, min(calc(100svh - 104px), 52vw), 940px); --pw: calc(var(--fh) * .8);
+    aspect-ratio: auto; height: var(--fh); max-height: none; }
+  .is-portrait .reel-bg { display: block; position: absolute; inset: -60px; z-index: 0; background-size: cover; background-position: center;
+    filter: blur(48px) saturate(1.1) brightness(.42); }
+  .is-portrait .reel-panel { position: absolute; z-index: 1; inset-block: 0; inset-inline-end: 0; width: var(--pw); overflow: hidden;
+    box-shadow: 0 0 60px rgba(0,0,0,.35); }
+  .is-portrait .reel-shade { background: linear-gradient(to bottom, rgba(18,14,10,.25), rgba(18,14,10,0) 30%, rgba(18,14,10,0) 70%, rgba(18,14,10,.25)); }
+  .is-portrait .reel-top { max-width: calc(100% - var(--pw) - clamp(40px, 8vw, 160px)); }
+  .is-portrait .reel-bottom { inset-inline-end: auto; inset-inline-start: clamp(20px, 5vw, 88px); max-width: calc(100% - var(--pw) - clamp(40px, 8vw, 160px)); }
+  .is-portrait .reel-title { font-size: clamp(52px, 7vw, 120px); }
+  .is-portrait .reel-toggle { top: 16px; bottom: auto; inset-inline-start: auto; inset-inline-end: 16px; }
+}
 @media (max-width: 760px) {
+  .reel-panel { display: contents; }
   .reel-frame { aspect-ratio: 4 / 5; max-height: calc(100svh - 84px); min-height: 520px; }
   .reel-top { inset-inline: 20px; max-width: none; padding-inline-end: 44px; }
   .reel-bottom { inset-inline: 20px; max-width: none; }

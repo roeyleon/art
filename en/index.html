@@ -53,11 +53,14 @@
 </header>
 <main id="main">
 <section class="hero-reel">
-  <div class="reel-frame">
+  <div class="reel-frame is-portrait">
+    <div class="reel-bg" style="background-image:url('../media/hero/reel-poster.jpg')" aria-hidden="true"></div>
+    <div class="reel-panel">
     <video class="reel reel-a" autoplay muted loop playsinline preload="auto" poster="../media/hero/reel-poster.jpg" aria-hidden="true"><source src="../media/hero/reel.mp4" type="video/mp4"></video>
     <video class="reel reel-b" muted playsinline preload="auto" aria-hidden="true"><source src="../media/hero/reel.mp4" type="video/mp4"></video>
     <div class="reel-shade"></div>
     <button class="reel-toggle" type="button" data-pause="Pause video" data-play="Play video" aria-label="Pause video"><span class="reel-icon" aria-hidden="true"></span></button>
+    </div>
     <div class="reel-top">
       <p class="reel-kicker"><bdi>ROEY LEON · ART &amp; OBJECTS</bdi></p>
       <h1 class="reel-title">Not just another picture on the wall.</h1>
