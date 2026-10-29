@@ -358,3 +358,5 @@ button { font: inherit; color: inherit; }
   width: 30px; height: 30px; display: inline-grid; place-items: center; line-height: 1; flex: none; transform: translateY(-3px); }
 .process p { color: var(--muted); margin: 0; max-width: 40ch; }
 @media (max-width: 760px) { .process { grid-template-columns: 1fr; } .process img { aspect-ratio: 4 / 3; } }
+
+.form-wa { color: inherit; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap; }

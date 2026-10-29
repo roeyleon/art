@@ -157,7 +157,13 @@
         if (!j.success) throw new Error(j.message);
         form.reset(); say(form.dataset.msgOk, 'is-ok');
       } catch (err) {
-        say(form.dataset.msgErr, 'is-err');
+        // the form service didn't answer (often a browser extension blocking it): offer the same text on WhatsApp
+        say(form.dataset.msgErr + ' ', 'is-err');
+        const a = document.createElement('a');
+        a.href = `https://wa.me/${form.dataset.wa}?text=${encodeURIComponent(lines.join('\n').trim())}`;
+        a.target = '_blank'; a.rel = 'noopener'; a.className = 'form-wa';
+        a.textContent = form.dataset.msgErrWa;
+        status.appendChild(a);
       } finally { b.disabled = false; }
     });
   }
